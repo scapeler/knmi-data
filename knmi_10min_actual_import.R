@@ -33,6 +33,6 @@ nc_close(ncin)
 foi<-paste('KNMI','06330',sep='')
 observation<-paste('apri-sensor-knmi-dd:',ddValue,sep='')
 observation<-paste(observation,',','apri-sensor-knmi-ff:',ffValue,sep='')
-url1<-'https://openiod?SERVICE=WPS&REQUEST=Execute&identifier=transform_observation&action=insertom&sensorsystem=apri-sensor-knmi&offering=offering_knmi_initial&commit=true';
+url1<-'https://openiod.org/SCAPE604/openiod?SERVICE=WPS&REQUEST=Execute&identifier=transform_observation&action=insertom&sensorsystem=apri-sensor-knmi&offering=offering_knmi_initial&commit=true';
 url <- paste(url1,'&foi=',foi,'&observation=',observation,'&measurementTime=',tijd2,sep='');
 url
