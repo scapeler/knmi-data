@@ -31,9 +31,11 @@ nc_close(ncin)
 dd
 ff
 tijd2
+tustr <- strsplit(tijd2, " ")
+tijd3 <- paste(tustr[1],'T',tustr[2],sep='')
 
 foi<-paste('KNMI','06330',sep='')
 observation<-''
 url1<-'https://openiod?SERVICE=WPS&REQUEST=Execute&identifier=transform_observation&action=insertom&sensorsystem=apri-sensor-knmi&offering=offering_knmi_initial&commit=true';
-url <- paste(url1,'&foi=',foi,'&observation=',observation,'&measurementTime=',tijd2,sep='');
+url <- paste(url1,'&foi=',foi,'&observation=',observation,'&measurementTime=',tijd3,sep='');
 url
