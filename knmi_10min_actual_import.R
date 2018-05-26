@@ -40,3 +40,4 @@ url <- paste(url1,'&foi=',foi,'&observation=',observation,'&measurementTime=',ti
 url
 
 myfile <- getURL(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+myfile
