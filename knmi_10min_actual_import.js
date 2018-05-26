@@ -89,7 +89,7 @@ ftp: function (query, callback) {
 		//element.name= _url.path.substr(1);
 //		console.log('ftp server on:ready for file: %s', element.name );
 
-		var tempFileName = "./" + "knmi_tmp_10min_actual_data.nc";
+		var tempFileName = "../knmi_files/" + "knmi_tmp_10min_actual_data.nc";
 		var writeStream = fs.createWriteStream(tempFileName);
 		// This is here incase any errors occur
   		writeStream.on('error', function (err) {
