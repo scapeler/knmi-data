@@ -2,7 +2,7 @@
 library(ncdf4)
 
 ncname<-"knmi_tmp_10min_actual_data"
-ncfname <- paste('/opt/SCAPE604/knmi-files/',ncname, ".nc", sep = "")
+ncfname <- paste('/opt/SCAPE604/knmi_files/',ncname, ".nc", sep = "")
 
 # open a NetCDF file
 ncin <- nc_open(ncfname)
