@@ -41,3 +41,4 @@ url
 
 myfile <- getURL(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
 myfile
+quit(save = "no")
