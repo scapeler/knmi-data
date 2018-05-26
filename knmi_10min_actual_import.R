@@ -17,7 +17,7 @@ tustr <- strsplit(tunits$value, " ")
 tmp<-unlist(tustr)[3]
 tijd<-as.POSIXct(tmp, format="%Y-%m-%d")
 #tijd2<-tijd+t
-tijd2<-strftime((tijd+t) , "%Y-%m-%dT%H:%M:%S%z")
+tijd2<-strftime((tijd+t-3600000) , "%Y-%m-%dT%H:%M:%S%z")
 
 ncvar_get(ncin, "time")
 stns <-ncvar_get(ncin, "station")
@@ -36,7 +36,7 @@ tijd2
 
 
 foi<-paste('KNMI','06330',sep='')
-observation<-''
+observation<-paste('apri-sensor-knmi-dd:',dd,sep='')
 url1<-'https://openiod?SERVICE=WPS&REQUEST=Execute&identifier=transform_observation&action=insertom&sensorsystem=apri-sensor-knmi&offering=offering_knmi_initial&commit=true';
 url <- paste(url1,'&foi=',foi,'&observation=',observation,'&measurementTime=',tijd2,sep='');
 url
