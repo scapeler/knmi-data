@@ -19,7 +19,7 @@ tustr <- strsplit(tunits$value, " ")
 tmp<-unlist(tustr)[3]
 tijd<-as.POSIXct(tmp, format="%Y-%m-%d")
 #tijd2<-tijd+t
-tijd2<-strftime((tijd+t-3600) , "%Y-%m-%dT%H:%M:%S%2B%z")
+tijd2<-strftime((tijd+t-3600) , "%Y-%m-%dT%H:%M:%S")
 
 ncvar_get(ncin, "time")
 stns <-ncvar_get(ncin, "station")
