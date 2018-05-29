@@ -67,7 +67,7 @@ ftp: function (query, callback) {
 
       var conn = new ftp();
 			conn.on('ready', function () {
-      conn.binary(function(){
+    //  conn.binary(function(){
        conn.cwd(_url.path,function(){
 				conn.get(_url.filename, function (err, stream) {
 					console.log('download file callback ' + _url.path);
@@ -80,7 +80,7 @@ ftp: function (query, callback) {
           stream.pipe(fs.createWriteStream(tempFileName));
 				});
       });
-      });
+      //});
 			});
 
 			//var _host = "83.247.110.3";
