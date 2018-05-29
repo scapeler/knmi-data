@@ -30,7 +30,7 @@ stns[stns=='06330']
 ddValue<-dd[stns=='06330']  # windrichting in graden 10 minute gemiddelde
 ffValue<-ff[stns=='06330']  # windspeed op 10m 10 minuten gemiddelde
 #D1HValue<-D1H[stns=='06330']  # duration rainfall last hour
-R1HValue<-RD1H[stns=='06330']  # rainfall in mm last hour
+R1HValue<-R1H[stns=='06330']  # rainfall in mm last hour
 
 nc_close(ncin)
 
