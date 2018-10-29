@@ -1,3 +1,6 @@
+
+library(methods)
+library(bitops)
 #install.packages("ncdf4")
 library(ncdf4)
 #install.packages("RCurl")
