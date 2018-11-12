@@ -21,6 +21,7 @@ height <- ncvar_get(ncin, "height")
 
 dd <- ncvar_get(ncin, "dd")
 ff <- ncvar_get(ncin, "ff")
+pp <- ncvar_get(ncin, "pp")
 D1H <- ncvar_get(ncin, "D1H")
 R1H <- ncvar_get(ncin, "R1H")
 td <- ncvar_get(ncin, "td")
@@ -86,6 +87,7 @@ x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
   ,height=height
   ,dd=dd
   ,ff=ff
+  ,pp=pp
   ,D1H=D1H
   ,R1H=R1H
   ,td=td
