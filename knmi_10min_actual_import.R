@@ -81,6 +81,7 @@ x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
                 ssl.verifyhost=FALSE,ssl.verifypeer=FALSE)
   ,station=station
   ,time= tijd2
+  ,entityTime= tijd2 
   ,stationName=stationName
   ,lat=lat
   ,lon=lon
