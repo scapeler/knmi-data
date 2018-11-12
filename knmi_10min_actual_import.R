@@ -23,6 +23,7 @@ dd <- ncvar_get(ncin, "dd")
 ff <- ncvar_get(ncin, "ff")
 D1H <- ncvar_get(ncin, "D1H")
 R1H <- ncvar_get(ncin, "R1H")
+td <- ncvar_get(ncin, "td")
 ta <- ncvar_get(ncin, "ta")
 rh <- ncvar_get(ncin, "rh")
 
@@ -87,6 +88,7 @@ x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
   ,ff=ff
   ,D1H=D1H
   ,R1H=R1H
+  ,td=td
   ,ta=ta
   ,rh=rh
   ,style="POST"
