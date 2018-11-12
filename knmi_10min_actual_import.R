@@ -70,8 +70,7 @@ myfile
 
 # send data to openiod-fiware-connect-server
 url<- "https://fiware-connect.openiod.nl/openiod-fiware-connect/knmi"
-#observation<-"test"
-x = postForm(url
+x = postForm(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
   ,station=station
   ,time= tijd2
   ,stationName=stationName
