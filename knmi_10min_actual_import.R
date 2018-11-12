@@ -70,22 +70,22 @@ myfile
 
 # send data to openiod-fiware-connect-server
 url<- "https://fiware-connect.openiod.nl/openiod-fiware-connect/knmi"
-x = postForm(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
-  ,station=station
-  ,time= tijd2
-  ,stationName=stationName
-  ,lat=lat
-  ,lon=lon
-  ,height=height
-  ,dd=dd
-  ,ff=ff
-  ,D1H=D1H
-  ,R1H=R1H
-  ,ta=ta
-  ,rh=rh
-  ,style="POST"
-)
-x
+#x = postForm(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
+#  ,station=station
+#  ,time= tijd2
+#  ,stationName=stationName
+#  ,lat=lat
+#  ,lon=lon
+#  ,height=height
+#  ,dd=dd
+#  ,ff=ff
+#  ,D1H=D1H
+#  ,R1H=R1H
+#  ,ta=ta
+#  ,rh=rh
+#  ,style="POST"
+#)
+#x
 
 
 quit(save = "no",status = 0)
