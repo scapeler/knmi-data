@@ -8,7 +8,7 @@ library(RCurl)
 
 ncname<-"knmi_tmp_10min_actual_data"
 ncfname <- paste('/opt/SCAPE604/knmi_files/',ncname, ".nc", sep = "")
-ncfname <- paste('~/projects/SCAPE604/knmi_files/',ncname, ".nc", sep = "")
+#ncfname <- paste('~/projects/SCAPE604/knmi_files/',ncname, ".nc", sep = "")
 
 # open a NetCDF file
 ncin <- nc_open(ncfname)
