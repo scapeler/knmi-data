@@ -52,6 +52,9 @@ R1HValue<-R1H[stns=='06330']  # rainfall in mm last hour
 taValue<-ta[stns=='06330']  # Air Temperature 1 Min Average
 rhValue<-rh[stns=='06330']  # Relative Humidity 1 Min Average
 
+dfKnmi <- data.frame(station, stationName,t,tunits,tijd2, lat,lon,height,dd,ff,pp,D1H,R1H,td,ta,rh)
+head(dfKnmi)
+
 nc_close(ncin)
 
 foi<-paste('KNMI','06330',sep='')
@@ -75,13 +78,13 @@ url<- "https://fiware-connect.openiod.nl/openiod-fiware-connect/knmi"
 #url<- "http://37.97.135.211:5000/openiod-fiware-connect/knmi"
 
 x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
-, .opts=curlOptions(#verbose=TRUE, 
-                 #   httpheader=headers, 
-                #    cainfo="../certs/foobar.pem", 
+, .opts=curlOptions(#verbose=TRUE,
+                 #   httpheader=headers,
+                #    cainfo="../certs/foobar.pem",
                 ssl.verifyhost=FALSE,ssl.verifypeer=FALSE)
   ,station=station
   ,time= tijd2
-  ,entityTime= tijd2 
+  ,entityTime= tijd2
   ,stationName=stationName
   ,lat=lat
   ,lon=lon
