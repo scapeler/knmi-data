@@ -6,14 +6,26 @@
 
 "use strict"; // This is for your code to comply with the ECMAScript 5 standard.
 
+var axios 							= require('axios');
 var fs 			= require('fs');
-var ftp 		= require('ftp');
+//var ftp 		= require('ftp');
 //var ftpClient 		= require('ftp-client');
 var url			= require('url');
-var sax 		= require('sax'),
-  strict = true; // set to false for html-mode
 
 console.log('Module ' + 'knmi_10min_actual_import.js' + ' executed');
+
+var api_url="https://api.dataplatform.knmi.nl/open-data"
+var api_key = "5e554e19274a9600012a3eb1b626f95624124cf89e9b5d74c3304520"  // anonymousKey
+var headers = {
+  "Authorization": api_key
+};
+var dataset_name = "Actuele10mindataKNMIstations"
+var dataset_version = "2"
+var max_keys = "10"
+var fileNamePrefix="KMDS__OPER_P___10M_OBS_L2_"
+var dataDir = "../knmi_files/";
+var dataFileName = dataDir + "knmi_tmp_10min_actual_data.nc";
+var dataLastDateFile = dataDir + "knmi_last_date.json";
 
 module.exports = {
 
@@ -23,9 +35,55 @@ init: function(req, res, query) {
 
 	console.log('Module ' + 'knmi_10min_actual_import.js' + ' init() executed');
 
-	this.ftp(query, function(tempFileName) {
-    console.log('Ftp succes');
-	});
+	//this.ftp(query, function(tempFileName) {
+  //  console.log('Ftp succes');
+	//});
+
+//  var currDate = new Date()
+
+
+  var dateFile = JSON.parse(fs.readFileSync(dataLastDateFile,{encoding:'utf8'}))
+  var lastDateIso = dateFile.lastDate  // yyyy-mm-ddThh:mm:ss
+  var lastDateDate = new Date(lastDateIso)
+  console.log(lastDateDate)
+  var newDate = new Date(lastDateDate.getTime()+600000)   // plus 10 minutes
+  var newDateIso = newDate.toISOString()
+  console.log(newDateIso)
+
+  var prefix = fileNamePrefix+ newDateIso.substr(0,4)+newDateIso.substr(5,2)+newDateIso.substr(8,2)+newDateIso.substr(11,2)+newDateIso.substr(14,2)
+
+
+//  https://api.dataplatform.knmi.nl/open-data/datasets/%7BdatasetName%7D/versions/%7BversionId%7D/files/%7Bfilename%7D/url
+
+/* list files available
+  var tmpUrl = api_url+'/datasets/'+dataset_name+'/versions/'+dataset_version+'/files'
+  axios.get(tmpUrl,{ headers: headers,params: {"maxKeys": max_keys, "startAfterFilename": prefix} })
+  .then(response => {
+    console.log("Records: "+response.data.length);
+    console.info(response.data)
+  })
+*/
+
+/*
+curl --location --request GET "https://api.dataplatform.knmi.nl/open-data/datasets/Actuele10mindataKNMIstations/versions/2/files/KMDS__OPER_P___10M_OBS_L2_202007271000/url" --header "Authorization: 5e554e19274a9600012a3eb1b626f95624124cf89e9b5d74c3304520"
+*/
+  var knmiFileName = prefix+'.nc'
+  var tmpUrl = api_url+'/datasets/'+dataset_name+'/versions/'+dataset_version+'/files/'+knmiFileName+'/url'
+  console.log(tmpUrl)
+  axios.get(tmpUrl,{ headers: headers })
+  .then(response => {
+    //console.log("url: "+response.data);
+    //console.info(response.data.temporaryDownloadUrl)
+    axios.get(response.data.temporaryDownloadUrl)
+    .then(response => {
+
+      console.log("dataset length: "+response.data.length);
+      //console.info(response.data.temporaryDownloadUrl)
+      fs.writeFileSync(dataFileName,response.data)
+    })
+  })
+
+
 },
 
 
