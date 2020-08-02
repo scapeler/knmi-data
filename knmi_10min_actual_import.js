@@ -79,7 +79,11 @@ curl --location --request GET "https://api.dataplatform.knmi.nl/open-data/datase
     .then(response=> {
       console.log('download file succeeded')
       console.log(response)
+      var dateFile = JSON.parse(fs.readFileSync(dataLastDateFile,{encoding:'utf8'}))
+      dateFile.lastDate=newDateIso
+      fs.writeFileSync(dataLastDateFile,JSON.stringify(dateFile))
     })
+    .catch(console.error)
 /*
     axios.get(response.data.temporaryDownloadUrl)
     .then(response => {
