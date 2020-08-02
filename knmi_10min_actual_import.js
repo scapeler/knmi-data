@@ -76,6 +76,10 @@ curl --location --request GET "https://api.dataplatform.knmi.nl/open-data/datase
     //console.info(response.data.temporaryDownloadUrl)
 
     this.downloadFile(response.data.temporaryDownloadUrl,dataFileName)
+    .then(response=> {
+      console.log('download file succeeded')
+      console.log(response)
+    })
 /*
     axios.get(response.data.temporaryDownloadUrl)
     .then(response => {
