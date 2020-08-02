@@ -74,17 +74,44 @@ curl --location --request GET "https://api.dataplatform.knmi.nl/open-data/datase
   .then(response => {
     //console.log("url: "+response.data);
     //console.info(response.data.temporaryDownloadUrl)
+
+    this.downloadFile(response.data.temporaryDownloadUrl,dataFileName)
+/*
     axios.get(response.data.temporaryDownloadUrl)
     .then(response => {
 
       console.log("dataset length: "+response.data.length);
       //console.info(response.data.temporaryDownloadUrl)
-      fs.writeFileSync(dataFileName,response.data)
+      //fs.writeFileSync(dataFileName,response.data,{encoding:null})
+      //var buf = new Buffer(response.data, 'base64');
+      //fs.writeSync(dataFileName,buf)
+
     })
+*/
   })
 
 
 },
+
+downloadFile: async function (url,path) {
+//  const url = 'https://unsplash.com/photos/AaEQmoufHLk/download?force=true'
+//  const path = Path.resolve(__dirname, 'images', 'code.jpg')
+  const writer = fs.createWriteStream(path)
+
+  const response = await axios({
+    url,
+    method: 'GET',
+    responseType: 'stream'
+  })
+
+  response.data.pipe(writer)
+
+  return new Promise((resolve, reject) => {
+    writer.on('finish', resolve)
+    writer.on('error', reject)
+  })
+},
+
 
 
 ftp: function (query, callback) {
