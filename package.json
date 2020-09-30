@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/openiod/knmi-data/issues"
   },
-  "homepage": "https://github.com/openiod/knmi-data#readme"
+  "homepage": "https://github.com/openiod/knmi-data#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
 }

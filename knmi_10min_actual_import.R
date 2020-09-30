@@ -74,7 +74,7 @@ myfile <- getURL(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
 myfile
 
 # send data to openiod-fiware-connect-server
-url<- "https://fiware-connect.openiod.nl/openiod-fiware-connect/knmi"
+url<- "https://fiware-connect.openiod.org/openiod-fiware-connect/knmi"
 #url<- "http://37.97.135.211:5000/openiod-fiware-connect/knmi"
 
 x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
