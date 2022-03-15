@@ -84,7 +84,8 @@ curl --location --request GET "https://api.dataplatform.knmi.nl/open-data/datase
       fs.writeFileSync(dataLastDateFile,JSON.stringify(dateFile))
     })
     .catch(error=> {
-      console.error(error)
+      console.error(error.response.status)
+      console.error(error.response.statusText)
     })
   })
   .catch(error=> {
