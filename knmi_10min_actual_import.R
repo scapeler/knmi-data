@@ -57,21 +57,21 @@ head(dfKnmi)
 
 nc_close(ncin)
 
-foi<-paste('KNMI','06330',sep='')
-observation<-paste('apri-sensor-knmi-dd:',ddValue,sep='')
-observation<-paste(observation,',','apri-sensor-knmi-ff:',ffValue,sep='')
-observation<-paste(observation,',','apri-sensor-knmi-D1H:',D1HValue,sep='')
-observation<-paste(observation,',','apri-sensor-knmi-R1H:',R1HValue,sep='')
-observation<-paste(observation,',','apri-sensor-knmi-ta:',taValue,sep='')
-observation<-paste(observation,',','apri-sensor-knmi-rh:',rhValue,sep='')
-url1<-'https://openiod.org/SCAPE604/openiod?SERVICE=WPS&REQUEST=Execute&identifier=transform_observation&action=insertom&sensorsystem=apri-sensor-knmi10m&offering=offering_knmi10m_initial&commit=true';
-url <- paste(url1,'&foi=',foi,'&observation=',observation,'&measurementTime=',tijd2,sep='');
-url
-
-# send data to OGC/SOS
-myfile <- getURL(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
-# result
-myfile
+#foi<-paste('KNMI','06330',sep='')
+#observation<-paste('apri-sensor-knmi-dd:',ddValue,sep='')
+#observation<-paste(observation,',','apri-sensor-knmi-ff:',ffValue,sep='')
+#observation<-paste(observation,',','apri-sensor-knmi-D1H:',D1HValue,sep='')
+#observation<-paste(observation,',','apri-sensor-knmi-R1H:',R1HValue,sep='')
+#observation<-paste(observation,',','apri-sensor-knmi-ta:',taValue,sep='')
+#observation<-paste(observation,',','apri-sensor-knmi-rh:',rhValue,sep='')
+#url1<-'https://openiod.org/SCAPE604/openiod?SERVICE=WPS&REQUEST=Execute&identifier=transform_observation&action=insertom&sensorsystem=apri-sensor-knmi10m&offering=offering_knmi10m_initial&commit=true';
+#url <- paste(url1,'&foi=',foi,'&observation=',observation,'&measurementTime=',tijd2,sep='');
+#url
+#
+## send data to OGC/SOS
+#myfile <- getURL(url, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+## result
+#myfile
 
 # send data to openiod-fiware-connect-server
 url<- "https://fiware-connect.openiod.org/openiod-fiware-connect/knmi"
