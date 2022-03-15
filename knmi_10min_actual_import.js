@@ -83,22 +83,13 @@ curl --location --request GET "https://api.dataplatform.knmi.nl/open-data/datase
       dateFile.lastDate=newDateIso
       fs.writeFileSync(dataLastDateFile,JSON.stringify(dateFile))
     })
-    .catch(console.error)
-/*
-    axios.get(response.data.temporaryDownloadUrl)
-    .then(response => {
-
-      console.log("dataset length: "+response.data.length);
-      //console.info(response.data.temporaryDownloadUrl)
-      //fs.writeFileSync(dataFileName,response.data,{encoding:null})
-      //var buf = new Buffer(response.data, 'base64');
-      //fs.writeSync(dataFileName,buf)
-
+    .catch(error=> {
+      console.error(error)
     })
-*/
   })
-
-
+  .catch(error=> {
+    console.error(error)
+  })
 },
 
 downloadFile: async function (url,path) {
@@ -121,7 +112,7 @@ downloadFile: async function (url,path) {
 },
 
 
-
+/*
 ftp: function (query, callback) {
 
 		//var _url = url.parse(query.url);
@@ -182,5 +173,6 @@ ftp: function (query, callback) {
 			conn.connect( { host:_url.hostname, port:_url.port });
 		}
 }
+*/
 
 } // end of module.exports
