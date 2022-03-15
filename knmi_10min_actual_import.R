@@ -53,7 +53,7 @@ taValue<-ta[stns=='06330']  # Air Temperature 1 Min Average
 rhValue<-rh[stns=='06330']  # Relative Humidity 1 Min Average
 
 dfKnmi <- data.frame(station, stationName,t,tunits,tijd2, lat,lon,height,dd,ff,pp,D1H,R1H,td,ta,rh)
-head(dfKnmi)
+#head(dfKnmi)
 
 nc_close(ncin)
 
@@ -76,6 +76,8 @@ nc_close(ncin)
 # send data to openiod-fiware-connect-server
 url<- "https://fiware-connect.openiod.org/openiod-fiware-connect/knmi"
 #url<- "http://37.97.135.211:5000/openiod-fiware-connect/knmi"
+url
+print(station)
 
 x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
 , .opts=curlOptions(#verbose=TRUE,
