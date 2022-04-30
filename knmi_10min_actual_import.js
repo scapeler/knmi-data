@@ -11,11 +11,16 @@ var fs 			= require('fs');
 //var ftp 		= require('ftp');
 //var ftpClient 		= require('ftp-client');
 var url			= require('url');
+var apiKey		= require('../config/knmi-api-key.js');
 
 console.log('Module ' + 'knmi_10min_actual_import.js' + ' executed');
 
 var api_url="https://api.dataplatform.knmi.nl/open-data"
 var api_key = "5e554e19274a9600012a3eb1b626f95624124cf89e9b5d74c3304520"  // anonymousKey
+api_key = apiKey.apiKey
+console.dir(apiKey)
+console.dir(api_key)
+
 var headers = {
   "Authorization": api_key
 };
