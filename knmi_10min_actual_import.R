@@ -27,6 +27,7 @@ R1H <- ncvar_get(ncin, "R1H")
 td <- ncvar_get(ncin, "td")
 ta <- ncvar_get(ncin, "ta")
 rh <- ncvar_get(ncin, "rh")
+qg <- ncvar_get(ncin, "qg")
 
 t <- ncvar_get(ncin, "time")
 tunits <- ncatt_get(ncin, "time", "units")
@@ -52,8 +53,7 @@ R1HValue<-R1H[stns=='06330']  # rainfall in mm last hour
 taValue<-ta[stns=='06330']  # Air Temperature 1 Min Average
 rhValue<-rh[stns=='06330']  # Relative Humidity 1 Min Average
 
-dfKnmi <- data.frame(station, stationName,t,tunits,tijd2, lat,lon,height,dd,ff,pp,D1H,R1H,td,ta,rh)
-#head(dfKnmi)
+dfKnmi <- data.frame(station, stationName,t,tunits,tijd2, lat,lon,height,dd,ff,pp,D1H,R1H,td,ta,rh,qg)
 
 nc_close(ncin)
 
@@ -75,7 +75,6 @@ nc_close(ncin)
 
 # send data to openiod-fiware-connect-server
 url<- "https://fiware-connect.openiod.org/openiod-fiware-connect/knmi"
-#url<- "http://37.97.135.211:5000/openiod-fiware-connect/knmi"
 url
 print(station)
 
@@ -99,6 +98,7 @@ x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
   ,td=td
   ,ta=ta
   ,rh=rh
+  ,qg=qg
   ,style="POST"
 )
 x
