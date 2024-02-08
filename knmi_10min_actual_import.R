@@ -73,35 +73,35 @@ nc_close(ncin)
 ## result
 #myfile
 
-# send data to openiod-fiware-connect-server
-url<- "https://fiware-connect.openiod.org/openiod-fiware-connect/knmi"
-url
-print(station)
-
-x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
-, .opts=curlOptions(#verbose=TRUE,
-                 #   httpheader=headers,
-                #    cainfo="../certs/foobar.pem",
-                ssl.verifyhost=FALSE,ssl.verifypeer=FALSE)
-  ,station=station
-  ,time= tijd2
-  ,entityTime= tijd2
-  ,stationName=stationName
-  ,lat=lat
-  ,lon=lon
-  ,height=height
-  ,dd=dd
-  ,ff=ff
-  ,pp=pp
-  ,D1H=D1H
-  ,R1H=R1H
-  ,td=td
-  ,ta=ta
-  ,rh=rh
-  ,qg=qg
-  ,style="POST"
-)
-x
+## send data to openiod-fiware-connect-server
+#url<- "https://fiware-connect.openiod.org/openiod-fiware-connect/knmi"
+#url
+#print(station)
+#
+#x = postForm(url ##, ssl.verifyhost=FALSE, ssl.verifypeer=FALSE
+#, .opts=curlOptions(#verbose=TRUE,
+#                 #   httpheader=headers,
+#                #    cainfo="../certs/foobar.pem",
+#                ssl.verifyhost=FALSE,ssl.verifypeer=FALSE)
+#  ,station=station
+#  ,time= tijd2
+#  ,entityTime= tijd2
+#  ,stationName=stationName
+#  ,lat=lat
+#  ,lon=lon
+#  ,height=height
+#  ,dd=dd
+#  ,ff=ff
+#  ,pp=pp
+#  ,D1H=D1H
+#  ,R1H=R1H
+#  ,td=td
+#  ,ta=ta
+#  ,rh=rh
+#  ,qg=qg
+#  ,style="POST"
+#)
+#x
 
 # send data to openiod-service
 urlNewPost<- "https://aprisensor-api-v1.openiod.org/v1/knmi"
