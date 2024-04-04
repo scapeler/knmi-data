@@ -33,7 +33,7 @@ tunits <- ncatt_get(ncin, "time", "units")
 
 tustr <- strsplit(tunits$value, " ")  # "seconds since 1950-01-01 00:00:00"
 tmp <- unlist(tustr)[3]               # strip "1950-01-01"
-tijd <- as.POSIXct(tmp, format = "%Y-%m-%d")  # convert "1950-01-01" to time
+tijd <- as.POSIXct(tmp, format = "%Y-%m-%d", tz = "GMT")  # convert "1950-01-01" to time.
 tijd2 <- strftime((tijd + t), "%Y-%m-%dT%H:%M:%S.000Z")  # 1950-01-01 + time -> UTC time in iso format
 
 dfKnmi <- data.frame(
