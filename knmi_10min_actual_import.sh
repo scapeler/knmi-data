@@ -12,7 +12,7 @@ node index knmi_10min_actual_import.js >>$LOGFILE 2>>$LOGFILE
 if [ -f "../knmi_files/knmi_tmp_10min_actual_data.nc" ]; then
   Rscript knmi_10min_actual_import.R >>$LOGFILE 2>>$LOGFILE
   Rscript knmi_10min_actual_import-v2.R >>$LOGFILE 2>>$LOGFILE
-  curl -X POST -H ‘Content-Type: application/json’ -d @/tmp/output.json "https://aprisensor-api-v1.openiod.org/v1/knmi"
+  curl -X POST -H "Content-Type: application/json" -d @/tmp/output.json "https://aprisensor-api-v1.openiod.org/v1/knmi"
 
 fi
 
